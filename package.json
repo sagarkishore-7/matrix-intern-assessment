@@ -1,0 +1,13 @@
+{
+    "scripts": {
+      "test": "jest --coverage",
+      "test:e2e": "detox test -c ios.sim.release",
+      "build:e2e": "detox build -c ios.sim.release",
+      "coverage-report": "jest --coverage --json --outputFile=coverage/coverage-summary.json"
+    },
+    "devDependencies": {
+      "jest": "^29.0.0",
+      "detox": "^20.0.0",
+      "pdf-lib": "^1.17.0"
+    }
+  }
