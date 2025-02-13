@@ -2,7 +2,7 @@ const fs = require('fs');
 const { PDFDocument, StandardFonts } = require('pdf-lib');
 
 const tasks = JSON.parse(fs.readFileSync('tasks.json')).tasks;
-const coverage = JSON.parse(fs.readFileSync('coverage.json')); // Jest coverage output
+const coverage = JSON.parse(fs.readFileSync('coverage/coverage-summary.json'));
 
 async function generateReport() {
   const pdfDoc = await PDFDocument.create();
@@ -13,9 +13,8 @@ async function generateReport() {
   tasks.forEach((task, index) => {
     const taskCoverage = coverage[task];
     page.drawText(`${index + 1}. ${task}`, { x: 50, y, font, size: 12 });
-    page.drawText(`Status: ${taskCoverage.passed ? 'Passed ✅' : 'Failed ❌'}`, { x: 50, y: y - 20, font, size: 12 });
-    page.drawText(`Coverage: ${taskCoverage.lines.pct}%`, { x: 50, y: y - 40, font, size: 12 });
-    y -= 80;
+    page.drawText(`Coverage: ${taskCoverage.lines.pct}%`, { x: 50, y: y - 20, font, size: 12 });
+    y -= 40;
   });
 
   const pdfBytes = await pdfDoc.save();
