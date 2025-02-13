@@ -1,20 +1,39 @@
 name: Intern Assessment
-on: [pull_request]
+on: [push, pull_request]  # Triggers on push or pull request
 
 jobs:
   test:
-    runs-on: self-hosted
+    runs-on: self-hosted  # Use Ubuntu runner
     steps:
+      # Step 1: Checkout the repository
       - uses: actions/checkout@v4
+
+      # Step 2: Set up Node.js
       - uses: actions/setup-node@v3
         with:
-          node-version: 20
-      - run: npm install
-      - name: Run Selected Tests
+          node-version: 20  # Use Node.js 18
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Run unit tests for selected tasks
+      - name: Run Unit Tests
         run: node scripts/test-selector.js
+
+      # Step 5: Build and run E2E tests
+      - name: Build for E2E Tests
+        run: npm run build:e2e
+
+      - name: Run E2E Tests
+        run: node scripts/test-selector.js --e2e
+
+      # Step 6: Generate and upload the PDF report
       - name: Generate Report
         run: node scripts/generate-report.js
-      - uses: actions/upload-artifact@v3
+
+      - name: Upload Report
+        uses: actions/upload-artifact@v3
         with:
           name: Test Report
           path: report.pdf
