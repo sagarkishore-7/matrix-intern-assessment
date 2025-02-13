@@ -3,15 +3,17 @@ on: [push, pull_request]  # Triggers on push or pull request
 
 jobs:
   test:
-    runs-on: self-hosted  # Use Ubuntu runner
+    runs-on: ubuntu-latest  # Use GitHub-hosted Ubuntu runner
     steps:
       # Step 1: Checkout the repository
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
       # Step 2: Set up Node.js
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 20  # Use Node.js 18
+          node-version: 20  # Using latest Node.js 20
 
       # Step 3: Install dependencies
       - name: Install dependencies
@@ -35,5 +37,7 @@ jobs:
       - name: Upload Report
         uses: actions/upload-artifact@v4
         with:
-          name: Test Report
+          name: Test-Report
           path: report.pdf
+          if-no-files-found: error  # Ensures workflow fails if the report is missing
+          retention-days: 15  # Stores the report for 15 days
