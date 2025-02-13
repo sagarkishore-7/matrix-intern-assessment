@@ -1,13 +1,13 @@
-# Matrix Intern Assessment
-Welcome to the Blend'n Intern Assessment repository! This document will guide you through the process of completing your technical assessment. Follow the instructions carefully to ensure your submission is evaluated correctly.
+# Matrix Social Labs Intern Assessment
+Welcome to the Matrix Social Labs Intern Assessment repository! This document will guide you through the process of completing your technical assessment. Follow the instructions carefully to ensure your submission is evaluated correctly.
 
 ## Table of Contents
-1. [Introduction](#introduction)
-2. [How to Get Started](#)
-3. [Task List](#)
-4. [Submission Guidelines](#)
-5. [Evaluation Criteria](#)
-6. [FAQs](#)
+1. [Introduction](#-introduction)
+2. [How to Get Started](#️-how-to-get-started)
+3. [Task List](#-task-list)
+4. [Submission Guidelines](#-submission-guidelines)
+5. [Evaluation Criteria](#-evaluation-criteria)
+6. [FAQs](#-faqs)
 
 ## 🚀 Introduction
 This repository is designed to evaluate your **React Native development skills** and problem-solving abilities. You will be asked to choose **3 tasks** from a list of 10, implement the required features, and submit your work for evaluation.
@@ -20,8 +20,8 @@ Your submission will be **automatically tested**, and a **PDF report** will be g
 1. Click the **Fork** button at the top-right of this repository to create your own copy.
 2. Clone your forked repository to your local machine:
     ```bash
-        git clone https://github.com/YOUR_USERNAME/blendn-intern-assessment.git
-        cd blendn-intern-assessment
+        git clone https://github.com/sagarkishore-7/matrix-intern-assessment.git
+        cd matrix-intern-assessment
     ```
 ### Step 2: Choose Your Tasks
 
